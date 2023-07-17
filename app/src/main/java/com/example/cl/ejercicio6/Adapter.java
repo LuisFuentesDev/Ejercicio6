@@ -18,6 +18,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
     private ArrayList<Image> images = new ArrayList<>();
     private FragmentImageBinding imageBinding;
+
     @NonNull
     @Override
     public Adapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,11 +30,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.viewHolder holder, int position) {
-      Image item = images.get(position);
-      holder.showInformation(item);
-
-
-
+        Image item = images.get(position);
+        holder.showInformation(item);
 
 
     }
@@ -51,15 +49,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
             imageBinding = binding;
         }
 
-        public void showInformation(Image image){
+        public void showInformation(Image image) {
 
             Glide.with(imageBinding.getRoot()).load(image.url).into(imageBinding.imageView);
         }
     }
 
-    public void setImages(ArrayList<Image> items){
+    public void setImages(ArrayList<Image> items) {
         this.images = items;
-
 
 
     }
